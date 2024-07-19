@@ -1,9 +1,9 @@
-const  {DMSToUTM, UTMToDMS} = require('../src/index')
+const  {DMSToUTM, UTMToDMS, DMSToLatLon, LatLonToDMS, UTMToLatLon, LatLonToUTM} = require('../index')
 
 
 describe('test library',()=>{
 
-    const dmsToUtmExample = {
+    const dmsExample = {
         latD: 33,
         latM: 27,
         latS: 25,
@@ -14,11 +14,37 @@ describe('test library',()=>{
         lonDir: 'W'
     };
 
-    it('should be equal in two bands', ()=>{
+    const utmExamle = {
+        easting: 346814.9975815493,
+        northing: 6296839.32907094,
+        zoneNum: 19,
+        zoneLetter: 'H'
+    }
 
-        const utm = DMSToUTM(dmsToUtmExample)
+    it('should be equal between DMS and UTM', ()=>{
+
+        const utm = DMSToUTM(dmsExample)
         const dms =UTMToDMS(utm)
         console.log(dms, utm)
-        expect(dmsToUtmExample).toEqual(dms)
+        expect(dmsExample).toEqual(dms)
+    })
+
+    it('should be equal between DMS and LatLong', ()=>{
+
+        const latLon = DMSToLatLon(dmsExample)
+        const dms = LatLonToDMS(latLon.lat, latLon.lon)
+        expect(dmsExample).toEqual(dms)
+    })
+
+    it('should be equal between UTM and LatLong', ()=>{
+
+        const latLon = UTMToLatLon(utmExamle)
+        const utm = LatLonToUTM(latLon.latitude, latLon.longitude)
+
+        console.log(latLon,utm)
+        expect(Math.round(utmExamle.easting)).toEqual(Math.round(utm.easting))
+        expect(Math.round(utmExamle.northing)).toEqual(Math.round(utm.northing))
+        expect(utm.zoneNum).toBe(utm.zoneNum)
+        expect(utm.zoneLetter).toBe(utm.zoneLetter)
     })
 })

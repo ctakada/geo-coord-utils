@@ -26,7 +26,8 @@ function DMSToDeg(d, m, s, direction) {
 }
 
 // Función para convertir lat/lon a DMS
-function latLonToDMS(lat, lon) {
+function LatLonToDMS(lat, lon) {
+
     const latDirection = lat >= 0 ? 'N' : 'S';
     const lonDirection = lon >= 0 ? 'E' : 'W';
       const latitude = toDMS(lat, latDirection);
@@ -51,26 +52,26 @@ function DMSToLatLon({latD, latM, latS, latDir, lonD, lonM, lonS, lonDir}) {
 }
 
 // Función para convertir lat/lon a UTM
-function latLonToUTM(lat, lon) {
+function LatLonToUTM(lat, lon) {
     return utm.fromLatLon(lat, lon);
 }
 
 // Función para convertir UTM a lat/lon
-function UTMToLatLon(easting, northing, zoneNum, zoneLetter) {
+function UTMToLatLon({easting, northing, zoneNum, zoneLetter}) {
     return utm.toLatLon(easting, northing, zoneNum, zoneLetter);
 }
 
 // Función para convertir DMS a UTM
 function DMSToUTM({latD, latM, latS, latDir, lonD, lonM, lonS, lonDir}) {
     const { lat, lon } = DMSToLatLon({latD, latM, latS, latDir, lonD, lonM, lonS, lonDir});
-    return latLonToUTM(lat, lon);
+    return LatLonToUTM(lat, lon);
 }
 
 // Función para convertir UTM a DMS
 function UTMToDMS({easting, northing, zoneNum, zoneLetter}) {
-    const { latitude, longitude } = UTMToLatLon(easting, northing, zoneNum, zoneLetter);
-    return latLonToDMS(latitude, longitude);
+    const { latitude, longitude } = UTMToLatLon({easting, northing, zoneNum, zoneLetter});
+    return LatLonToDMS(latitude, longitude);
 }
 
 
-module.exports = { DMSToUTM, UTMToDMS };
+module.exports = { UTMToDMS, UTMToLatLon, LatLonToUTM: LatLonToUTM, LatLonToDMS: LatLonToDMS, DMSToLatLon, DMSToUTM };
