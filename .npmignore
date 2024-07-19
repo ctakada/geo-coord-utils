@@ -1,0 +1,26 @@
+# Exclude test directories and files
+test/
+tests/
+*.test.js
+
+# Exclude local configuration files
+*.log
+*.env
+eslint.config.mjs
+
+# Exclude development directories
+coverage/
+dist/
+build/
+/.idea/
+
+# Exclude node_modules (although npm ignores this by default)
+node_modules/
+
+# Exclude OS-specific files
+.DS_Store
+
+# Exclude Git files
+.git/
+.gitignore
+.nvmrc
