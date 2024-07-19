@@ -5,7 +5,7 @@ declare module 'geo-coord-utils' {
         zoneNum: number;
         zoneLetter: string;
     }
-    interface DMSParamsCoords {
+    interface DMSCoords {
         latD: number,
         latM: number,
         latS: number,
@@ -16,20 +16,15 @@ declare module 'geo-coord-utils' {
         lonDir: string
     }
 
-    interface DMSResponseCoords {
-        lat: string;
-        lon: string;
-    }
-
     interface LatLonCoords {
         latitude: number;
         longitude: number;
     }
 
-    export function UTMToDMS(params:UTMCoords): DMSResponseCoords;
+    export function UTMToDMS(params:UTMCoords): DMSCoords;
     export function UTMToLatLon(params:UTMCoords): LatLonCoords;
     export function LatLonToUTM(lat: number, lon: number): UTMCoords;
-    export function LatLonToDMS(lat: number, lon: number): DMSResponseCoords;
-    export function DMSToLatLon(params:DMSParamsCoords): LatLonCoords;
-    export function DMSToUTM(params:DMSParamsCoords): UTMCoords;
+    export function LatLonToDMS(lat: number, lon: number): DMSCoords;
+    export function DMSToLatLon(params:DMSCoords): LatLonCoords;
+    export function DMSToUTM(params:DMSCoords): UTMCoords;
 }
