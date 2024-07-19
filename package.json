@@ -11,7 +11,7 @@
   },
   "name": "geo-coord-utils",
   "description": "This library provides functions to convert coordinates between DMS (Degrees, Minutes, Seconds), Latitude-Longitude and UTM (Universal Transverse Mercator) formats in JavaScript.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "types": "index.d.ts",
   "main": "index.js",
   "directories": {
