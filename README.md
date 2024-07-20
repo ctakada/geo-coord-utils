@@ -1,6 +1,8 @@
 
 # Geo-Coord-Utils
-
+<div style="text-align: center; margin-bottom: 20px">
+    <img src="assets/logo.png" alt="Geo-Coord-Utils Launch" width="360" height="360" style="box-shadow: 0 0 20px rgba(0,0,0,0.5); border-radius: 10px;">
+</div>
 This library provides functions to convert coordinates between DMS (Degrees, Minutes, Seconds), UTM (Universal Transverse Mercator), and decimal (latitude/longitude) formats in JavaScript.
 
 ## Installation
