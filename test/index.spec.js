@@ -25,14 +25,13 @@ describe('test library',()=>{
 
         const utm = DMSToUTM(dmsExample)
         const dms =UTMToDMS(utm)
-        console.log(dms, utm)
         expect(dmsExample).toEqual(dms)
     })
 
     it('should be equal between DMS and LatLong', ()=>{
 
         const latLon = DMSToLatLon(dmsExample)
-        const dms = LatLonToDMS(latLon.lat, latLon.lon)
+        const dms = LatLonToDMS(latLon.latitude, latLon.longitude)
         expect(dmsExample).toEqual(dms)
     })
 
