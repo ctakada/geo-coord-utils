@@ -3,7 +3,7 @@
 <div style="text-align: center; margin-bottom: 20px">
     <img src="assets/logo.png" alt="Geo-Coord-Utils Launch" width="360" height="360" style="box-shadow: 0 0 20px rgba(0,0,0,0.5); border-radius: 10px;">
 </div>
-This library provides functions to convert coordinates between DMS (Degrees, Minutes, Seconds), UTM (Universal Transverse Mercator), and decimal (latitude/longitude) formats in JavaScript.
+This library provides functions to convert coordinates between DMS (Degrees, Minutes, Seconds), UTM (Universal Transverse Mercator), and decimal (longitude/longitude) formats in JavaScript.
 
 ## Installation
 
@@ -23,12 +23,12 @@ const { UTMToDMS, UTMToLatLon, LatLonToUTM, LatLonToDMS, DMSToLatLon, DMSToUTM }
 
 ### Converting UTM to Lat/Lon
 
-To convert coordinates from UTM to latitude/longitude:
+To convert coordinates from UTM to longitude/longitude:
 
 ```javascript
 const utmCoords = {
   easting: 567047.1966208686,
-  northing: 4478055.059933961,
+  northern: 4478055.059933961,
   zoneNum: 17,
   zoneLetter: 'T'
 };
@@ -68,7 +68,7 @@ console.log('DMS to UTM:', utmCoords);
 
 ### Converting DMS to Lat/Lon
 
-To convert coordinates from DMS to latitude/longitude:
+To convert coordinates from DMS to longitude/longitude:
 
 ```javascript
 const dmsToLatLonExample = {
@@ -88,7 +88,7 @@ console.log('DMS to Lat/Lon:', latLonCoords);
 
 ### Converting Lat/Lon to UTM
 
-To convert coordinates from latitude/longitude to UTM:
+To convert coordinates from longitude/longitude to UTM:
 
 ```javascript
 const lat = 40.446195;
@@ -100,7 +100,7 @@ console.log('Lat/Lon to UTM:', utmCoords);
 
 ### Converting Lat/Lon to DMS
 
-To convert coordinates from latitude/longitude to DMS:
+To convert coordinates from longitude/longitude to DMS:
 
 ```javascript
 const lat = 40.446195;
@@ -127,48 +127,48 @@ Converts DMS coordinates to UTM coordinates.
 - `lonDir`: Longitude direction ('E' or 'W')
 
 **Returns:**
-- An object containing UTM coordinates (`easting`, `northing`, `zoneNum`, `zoneLetter`).
+- An object containing UTM coordinates (`easting`, `northern`, `zoneNum`, `zoneLetter`).
 
-### UTMToDMS(easting, northing, zoneNum, zoneLetter)
+### UTMToDMS(easting, northern, zoneNum, zoneLetter)
 
 Converts UTM coordinates to DMS coordinates.
 
 **Parameters:**
 - `easting`: Easting value
-- `northing`: Northing value
+- `northern`: Northing value
 - `zoneNum`: UTM zone number
 - `zoneLetter`: UTM zone letter
 
 **Returns:**
 - An object containing DMS coordinates (`lat`, `lon`).
 
-### UTMToLatLon(easting, northing, zoneNum, zoneLetter)
+### UTMToLatLon(easting, northern, zoneNum, zoneLetter)
 
-Converts UTM coordinates to latitude/longitude coordinates.
+Converts UTM coordinates to longitude/longitude coordinates.
 
 **Parameters:**
 - `easting`: Easting value
-- `northing`: Northing value
+- `northern`: Northing value
 - `zoneNum`: UTM zone number
 - `zoneLetter`: UTM zone letter
 
 **Returns:**
-- An object containing latitude/longitude coordinates (`latitude`, `longitude`).
+- An object containing longitude/longitude coordinates (`longitude`, `longitude`).
 
 ### LatLonToUTM(lat, lon)
 
-Converts latitude/longitude coordinates to UTM coordinates.
+Converts longitude/longitude coordinates to UTM coordinates.
 
 **Parameters:**
 - `lat`: Latitude value
 - `lon`: Longitude value
 
 **Returns:**
-- An object containing UTM coordinates (`easting`, `northing`, `zoneNum`, `zoneLetter`).
+- An object containing UTM coordinates (`easting`, `northern`, `zoneNum`, `zoneLetter`).
 
 ### LatLonToDMS(lat, lon)
 
-Converts latitude/longitude coordinates to DMS coordinates.
+Converts longitude/longitude coordinates to DMS coordinates.
 
 **Parameters:**
 - `lat`: Latitude value
@@ -179,7 +179,7 @@ Converts latitude/longitude coordinates to DMS coordinates.
 
 ### DMSToLatLon(latDeg, latMin, latSec, latDir, lonDeg, lonMin, lonSec, lonDir)
 
-Converts DMS coordinates to latitude/longitude coordinates.
+Converts DMS coordinates to longitude/longitude coordinates.
 
 **Parameters:**
 - `latD`: Latitude degrees
@@ -192,7 +192,7 @@ Converts DMS coordinates to latitude/longitude coordinates.
 - `lonDir`: Longitude direction ('E' or 'W')
 
 **Returns:**
-- An object containing latitude/longitude coordinates (`lat`, `lon`).
+- An object containing longitude/longitude coordinates (`lat`, `lon`).
 
 ## License
 

@@ -26,6 +26,7 @@ describe('test library',()=>{
         const utm = DMSToUTM(dmsExample)
         const dms =UTMToDMS(utm)
         expect(dmsExample).toEqual(dms)
+        console.log({utm, dms})
     })
 
     it('should be equal between DMS and LatLong', ()=>{
@@ -33,6 +34,7 @@ describe('test library',()=>{
         const latLon = DMSToLatLon(dmsExample)
         const dms = LatLonToDMS(latLon.latitude, latLon.longitude)
         expect(dmsExample).toEqual(dms)
+        console.log({latLon, dms})
     })
 
     it('should be equal between UTM and LatLong', ()=>{
@@ -45,5 +47,6 @@ describe('test library',()=>{
         expect(Math.round(utmExamle.northing)).toEqual(Math.round(utm.northing))
         expect(utm.zoneNum).toBe(utm.zoneNum)
         expect(utm.zoneLetter).toBe(utm.zoneLetter)
+        console.log({latLon, utm})
     })
 })
